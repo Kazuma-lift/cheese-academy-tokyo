@@ -1,0 +1,587 @@
+/* チーズアカデミーTOKYO */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #222222;
+  font-family: "Helvetica Neue", Arial, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", YuGothic, Meiryo, sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  line-break: strict;
+  background: #fff;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  color: #222222;
+}
+
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-en {
+  color: #ffd61a;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.section-ja {
+  margin-top: 30px;
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 60px;
+  border: none;
+  background: #ffd61a;
+  color: #222222;
+  font-size: 18px;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.btn:hover {
+  background: #222222;
+  color: #ffd61a;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #222222;
+  outline-offset: 2px;
+}
+
+/* ヘッダー */
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 0;
+}
+
+.logo img {
+  width: auto;
+  height: 64px;
+}
+
+.nav-list {
+  display: flex;
+  gap: 50px;
+}
+
+.nav-list a {
+  font-size: 21px;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.nav-list a:hover {
+  color: #b8960a;
+}
+
+/* メインビジュアル */
+.mainvisual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+}
+
+.mainvisual::before {
+  content: "";
+  position: absolute;
+  inset: -24px;
+  background: url("../img/mainbg.png") center / cover no-repeat;
+  animation: hero-zoom 18s ease-in-out infinite alternate;
+}
+
+.mainvisual-inner {
+  position: relative;
+  z-index: 1;
+  padding: 0 24px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+}
+
+.mainvisual h1 {
+  font-size: 48px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+}
+
+.mainvisual p {
+  margin-top: 30px;
+  font-size: 32px;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+
+@keyframes hero-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.06); }
+}
+
+/* About */
+.about {
+  padding-top: 50px;
+}
+
+.about-text {
+  max-width: 760px;
+  margin: 60px auto 0;
+  text-align: center;
+}
+
+.about-text p + p {
+  margin-top: 40px;
+}
+
+.about-photos {
+  display: flex;
+  margin-top: 80px;
+}
+
+.about-photos li {
+  width: 25%;
+  overflow: hidden;
+}
+
+.about-photos img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.about-photos li:hover img {
+  transform: scale(1.05);
+}
+
+/* Course */
+.course {
+  padding-top: 60px;
+}
+
+.course-lead {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.course-list {
+  margin-top: 60px;
+}
+
+.course-item {
+  display: flex;
+  align-items: stretch;
+}
+
+.course-item-reverse {
+  flex-direction: row-reverse;
+}
+
+.course-photo {
+  width: 50%;
+  height: 480px;
+  object-fit: cover;
+}
+
+.course-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  padding: 50px 120px;
+  text-align: center;
+}
+
+.course-body h3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.course-body p {
+  margin-top: 40px;
+}
+
+/* News */
+.news {
+  padding: 60px 0;
+}
+
+.news-list {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.news-card {
+  width: 300px;
+  cursor: pointer;
+}
+
+.news-thumb {
+  height: 200px;
+  overflow: hidden;
+}
+
+.news-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.news-card time {
+  display: block;
+  margin-top: 30px;
+}
+
+.news-card p {
+  margin-top: 24px;
+}
+
+.news-card:hover .news-thumb img {
+  transform: scale(1.08);
+}
+
+.news-card:hover p {
+  color: #8a6d00;
+}
+
+.btn-wrap {
+  margin-top: 60px;
+  text-align: center;
+}
+
+/* Access */
+.access {
+  padding-top: 50px;
+  background: #fafafa;
+}
+
+.access-map {
+  height: 420px;
+  margin-top: 60px;
+}
+
+.access-map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.access-list {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  column-gap: 50px;
+  row-gap: 30px;
+  width: max-content;
+  max-width: calc(100% - 40px);
+  margin: 60px auto 50px;
+}
+
+.access-list dt {
+  text-align: right;
+}
+
+/* Contact */
+.contact {
+  padding: 60px 20px 140px;
+  background: #fafafa;
+}
+
+.contact-lead {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.contact-note {
+  margin-top: 30px;
+  font-size: 14px;
+}
+
+.form {
+  width: 640px;
+  max-width: 100%;
+  margin: 70px auto 0;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  border: 0;
+  padding: 0;
+}
+
+.form-row:first-child {
+  margin-top: 0;
+}
+
+.form-label {
+  width: 240px;
+  flex: 0 0 240px;
+  padding-right: 16px;
+  line-height: 1.6;
+}
+
+.form-field {
+  width: 400px;
+  flex: 0 0 400px;
+}
+
+.form-row input[type="text"],
+.form-row input[type="email"],
+.form-row select,
+.form-row textarea {
+  width: 328px;
+  border: 1px solid #bfbfbf;
+  background: #fff;
+  font-size: 16px;
+}
+
+.form-row input[type="text"],
+.form-row input[type="email"],
+.form-row select {
+  height: 36px;
+  padding: 0 10px;
+}
+
+.form-row textarea {
+  height: 140px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.form-row-top {
+  align-items: flex-start;
+}
+
+.form-row-top .form-label {
+  padding-top: 4px;
+}
+
+.checks {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.check {
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr);
+  column-gap: 10px;
+  align-items: start;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.check input {
+  width: 16px;
+  height: 16px;
+  margin-top: 4px;
+  accent-color: #c9a400;
+}
+
+.form-submit {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.form-done {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.form-done[hidden] {
+  display: none;
+}
+
+/* フッター */
+.footer {
+  padding: 30px 16px;
+  background: #707070;
+  color: #fff;
+  text-align: center;
+}
+
+@media (max-width: 1100px) {
+  .course-body {
+    padding: 40px 48px;
+  }
+}
+
+@media (max-width: 900px) {
+  .header-inner {
+    flex-direction: column;
+    gap: 28px;
+    padding: 28px 16px;
+  }
+
+  .nav-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 28px;
+  }
+
+  .nav-list a {
+    font-size: 16px;
+  }
+
+  .mainvisual {
+    height: 380px;
+  }
+
+  .mainvisual h1 {
+    font-size: 32px;
+  }
+
+  .mainvisual p {
+    font-size: 20px;
+  }
+
+  .about-text br,
+  .course-lead br,
+  .contact-lead br {
+    display: none;
+  }
+
+  .course-item,
+  .course-item-reverse {
+    flex-direction: column;
+  }
+
+  .course-photo,
+  .course-body {
+    width: 100%;
+  }
+
+  .course-photo {
+    height: 260px;
+  }
+
+  .course-body {
+    padding: 40px 24px;
+  }
+
+  .news-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .access-list {
+    grid-template-columns: 1fr;
+    row-gap: 8px;
+    width: auto;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+  .access-list dt {
+    margin-top: 16px;
+    text-align: left;
+  }
+
+  .access-list dd {
+    margin-bottom: 8px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .form-label,
+  .form-field,
+  .form-row input[type="text"],
+  .form-row input[type="email"],
+  .form-row select,
+  .form-row textarea {
+    width: 100%;
+    flex: none;
+  }
+
+  .btn {
+    width: min(300px, 100%);
+  }
+}
+
+@media (max-width: 640px) {
+  .about-photos {
+    flex-wrap: wrap;
+  }
+
+  .about-photos li {
+    width: 50%;
+  }
+
+  .about-photos img {
+    height: 140px;
+  }
+
+  .mainvisual h1 {
+    font-size: 26px;
+  }
+
+  .mainvisual p {
+    margin-top: 16px;
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .mainvisual::before {
+    animation: none;
+  }
+}
