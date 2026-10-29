@@ -11,12 +11,15 @@ html {
 }
 
 body {
-  color: #222222;
+  color: #493823;
   font-family: "M PLUS Rounded 1c", sans-serif;
   font-size: 16px;
+  font-weight: 400;
   line-height: 1.8;
+  /* strict：厳密な禁則処理を適用して、小文字や句読点の行頭配置を防ぐ */
   line-break: strict;
-  background: #fff;
+  background: #FFF8E8;
+  overflow-x: hidden;
 }
 
 img {
@@ -34,7 +37,7 @@ input,
 select,
 textarea {
   font-family: inherit;
-  color: #222222;
+  color: #493823;
 }
 
 .wrap {
@@ -43,9 +46,9 @@ textarea {
 }
 
 .section-en {
-  color: #ffd61a;
+  color: #F4C84A;
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 0.14em;
   line-height: 1.4;
   text-align: center;
@@ -54,6 +57,7 @@ textarea {
 .section-ja {
   margin-top: 30px;
   font-size: 18px;
+  font-weight: 500;
   letter-spacing: 0.04em;
   line-height: 1.6;
   text-align: center;
@@ -66,18 +70,18 @@ textarea {
   width: 300px;
   height: 60px;
   border: none;
-  background: #ffd61a;
-  color: #222222;
+  background: #F4C84A;
+  color: #493823;
   font-size: 18px;
-  line-height: 1;
+  font-weight: 700;
   text-decoration: none;
   cursor: pointer;
-  transition: background 0.25s ease, color 0.25s ease;
+  transition: background-color 2.0s ease, color 2.0s ease;
 }
 
 .btn:hover {
-  background: #222222;
-  color: #ffd61a;
+  background: #493823;
+  color: #F4C84A;
 }
 
 a:focus-visible,
@@ -85,11 +89,29 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid #222222;
+  outline: 2px solid #493823;
   outline-offset: 2px;
 }
 
 /* HEADER */
+.header {
+  position: relative;
+  z-index: 0;
+  background: #FFFFFF;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 50%;
+  width: 100vw;
+  height: 100%;
+  transform: translateX(-50%);
+  background: #FFFFFF;
+}
+
 .header-inner {
   display: flex;
   align-items: center;
@@ -108,18 +130,20 @@ textarea:focus-visible {
 }
 
 .nav-list a {
-  font-size: 21px;
+  font-size: 16px;
+  font-weight: 500;
   letter-spacing: 0.04em;
   line-height: 1;
   text-decoration: none;
+  transition: color 2.0s ease;
 }
 
 .nav-list a:hover {
-  color: #b8960a;
+  color: #F4C84A;
 }
 
 /* HERO */
-.mainvisual {
+.hero {
   position: relative;
   display: flex;
   align-items: center;
@@ -130,7 +154,7 @@ textarea:focus-visible {
   text-align: center;
 }
 
-.mainvisual::before {
+.hero::before {
   content: "";
   position: absolute;
   inset: -24px;
@@ -138,25 +162,43 @@ textarea:focus-visible {
   animation: hero-zoom 18s ease-in-out infinite alternate;
 }
 
-.mainvisual-inner {
+.hero-inner {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   padding: 0 24px;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
 }
 
-.mainvisual h1 {
+.hero .section-en {
+  margin-top: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.hero h1 {
+  margin-top: 12px;
   font-size: 48px;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 0.06em;
   line-height: 1.4;
 }
 
-.mainvisual p {
-  margin-top: 30px;
-  font-size: 32px;
+.hero p {
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: 400;
   letter-spacing: 0.04em;
-  line-height: 1.5;
+  line-height: 1.6;
+}
+
+.hero h1 + p {
+  margin-top: 24px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.hero .btn-wrap {
+  margin-top: 60px;
 }
 
 @keyframes hero-zoom {
@@ -166,7 +208,23 @@ textarea:focus-visible {
 
 /* ABOUT */
 .about {
-  padding-top: 50px;
+  position: relative;
+  z-index: 0;
+  padding-top: 80px;
+  padding-bottom: 0;
+  background: #FFFFFF;
+}
+
+.about::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 50%;
+  width: 100vw;
+  height: 100%;
+  transform: translateX(-50%);
+  background: #FFFFFF;
 }
 
 .about-text {
@@ -193,43 +251,51 @@ textarea:focus-visible {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  transition: transform 0.45s ease;
+  transition: transform 2.0s ease;
 }
 
 .about-photos li:hover img {
   transform: scale(1.05);
 }
 
-/* SERVICE（旧：course） */
-.course {
-  padding-top: 60px;
+/* SERVICE */
+.service {
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
-.course-lead {
+.service-lead {
   margin-top: 30px;
   text-align: center;
 }
 
-.course-list {
+.service-list {
   margin-top: 60px;
 }
 
-.course-item {
+.service-item {
   display: flex;
   align-items: stretch;
 }
 
-.course-item-reverse {
+.service-item-reverse {
   flex-direction: row-reverse;
 }
 
-.course-photo {
+.service-photo-frame {
+  position: relative;
   width: 50%;
   height: 480px;
+  overflow: hidden;
+}
+
+.service-photo {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
-.course-body {
+.service-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -238,19 +304,34 @@ textarea:focus-visible {
   text-align: center;
 }
 
-.course-body h3 {
+.service-body h3 {
   font-size: 18px;
   font-weight: 700;
   line-height: 1.6;
 }
 
-.course-body p {
+.service-body p {
   margin-top: 40px;
 }
 
-/* DASHBOARD（旧：news） */
-.news {
-  padding: 60px 0;
+/* DASHBOARD */
+.dashboard {
+  position: relative;
+  z-index: 0;
+  padding: 80px 0;
+  background: #FFFFFF;
+}
+
+.dashboard::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 50%;
+  width: 100vw;
+  height: 100%;
+  transform: translateX(-50%);
+  background: #FFFFFF;
 }
 
 .dashboard-visual {
@@ -262,45 +343,48 @@ textarea:focus-visible {
   height: auto;
 }
 
-.news-list {
+.dashboard-list {
   display: flex;
   justify-content: center;
   gap: 30px;
   margin-top: 60px;
 }
 
-.news-card {
+.dashboard-card {
   width: 300px;
   cursor: pointer;
 }
 
-.news-thumb {
+.dashboard-thumb {
   height: 200px;
   overflow: hidden;
 }
 
-.news-thumb img {
+.dashboard-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.45s ease;
+  transition: transform 0.6s ease;
 }
 
-.news-card time {
+.dashboard-card time {
   display: block;
   margin-top: 30px;
 }
 
-.news-card p {
+.dashboard-card p {
   margin-top: 24px;
+  transition: color 2.0s ease;
 }
 
-.news-card:hover .news-thumb img {
+/* メモ：カーソルが乗ったとき（ホバー時）の変化。
+   速さ（transition）はホバー前に書く。:hover には、変わる中身だけを書く。 */
+.dashboard-card:hover .dashboard-thumb img {
   transform: scale(1.08);
 }
 
-.news-card:hover p {
-  color: #8a6d00;
+.dashboard-card:hover p {
+  color: #F4C84A;
 }
 
 .btn-wrap {
@@ -308,24 +392,25 @@ textarea:focus-visible {
   text-align: center;
 }
 
-/* COMPANY（旧：access） */
-.access {
-  padding-top: 50px;
-  background: #fafafa;
+/* COMPANY */
+.company {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background: #FFF8E8;
 }
 
-.access-map {
+.company-map {
   height: 420px;
   margin-top: 60px;
 }
 
-.access-map iframe {
+.company-map iframe {
   width: 100%;
   height: 100%;
   border: 0;
 }
 
-.access-list {
+.company-list {
   display: grid;
   grid-template-columns: max-content max-content;
   column-gap: 50px;
@@ -335,14 +420,28 @@ textarea:focus-visible {
   margin: 60px auto 50px;
 }
 
-.access-list dt {
+.company-list dt {
   text-align: right;
 }
 
 /* CONTACT */
 .contact {
-  padding: 60px 20px 140px;
-  background: #fafafa;
+  position: relative;
+  z-index: 0;
+  padding: 80px 20px 140px;
+  background: #FFFFFF;
+}
+
+.contact::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 50%;
+  width: 100vw;
+  height: 100%;
+  transform: translateX(-50%);
+  background: #FFFFFF;
 }
 
 .contact-lead {
@@ -356,9 +455,11 @@ textarea:focus-visible {
 }
 
 .form {
-  width: 640px;
-  max-width: 100%;
+  position: relative;
+  width: min(760px, 100%);
   margin: 70px auto 0;
+  padding: 36px 40px 44px;
+  background: #FFF8E8;
 }
 
 .form-row {
@@ -390,8 +491,8 @@ textarea:focus-visible {
 .form-row select,
 .form-row textarea {
   width: 328px;
-  border: 1px solid #bfbfbf;
-  background: #fff;
+  border: 1px solid rgba(73, 56, 35, 0.35);
+  background: #FFFFFF;
   font-size: 16px;
 }
 
@@ -435,7 +536,7 @@ textarea:focus-visible {
   width: 16px;
   height: 16px;
   margin-top: 4px;
-  accent-color: #c9a400;
+  accent-color: #F4C84A;
 }
 
 .form-submit {
@@ -452,16 +553,205 @@ textarea:focus-visible {
   display: none;
 }
 
+/* 縁のチーズ穴
+   四隅を丸めるのではなく、上下左右の淵に下地と同じ色の円・楕円を重ねる。
+   円の中心を淵の線上に置くと、内側だけが半円の穴に見える。
+   --bite が下地の色。ABOUT と DASHBOARD は白、SERVICE と COMPANY はクリーム。
+   フォームはクリームの面なので、穴の色は後ろの白。
+   ABOUT の写真は4枚とも対象。SERVICE の JPEG は course_01〜03。
+   ヘッダー画像（.hero）は、上と下が白、左右がクリーム。
+   img には ::after を付けられないので、SERVICE の写真だけ箱（.service-photo-frame）で包んでいる。 */
+.about-photos li,
+.dashboard-visual,
+.company-map {
+  position: relative;
+}
+
+.about-photos li,
+.dashboard-visual {
+  --bite: #FFFFFF;
+}
+
+.service-photo-frame,
+.company-map {
+  --bite: #FFF8E8;
+}
+
+.form {
+  --bite: #FFFFFF;
+}
+
+.about-photos li:nth-child(1) {
+  --holes:
+    radial-gradient(circle at 16% 0, var(--bite) 15px, transparent 16px),
+    radial-gradient(ellipse 28px 14px at 58% 0, var(--bite) 100%, transparent 100%),
+    radial-gradient(circle at 100% 12%, var(--bite) 11px, transparent 12px),
+    radial-gradient(ellipse 13px 22px at 100% 46%, var(--bite) 100%, transparent 100%),
+    radial-gradient(circle at 100% 84%, var(--bite) 14px, transparent 15px),
+    radial-gradient(ellipse 22px 12px at 27% 100%, var(--bite) 100%, transparent 100%),
+    radial-gradient(circle at 74% 100%, var(--bite) 17px, transparent 18px),
+    radial-gradient(circle at 0 42%, var(--bite) 12px, transparent 13px);
+}
+
+.about-photos li:nth-child(2),
+.form {
+  --holes:
+    radial-gradient(circle at 24% 0, var(--bite) 16px, transparent 17px),
+    radial-gradient(ellipse 26px 14px at 78% 0, var(--bite) 100%, transparent 100%),
+    radial-gradient(circle at 100% 28%, var(--bite) 13px, transparent 14px),
+    radial-gradient(ellipse 12px 22px at 100% 67%, var(--bite) 100%, transparent 100%),
+    radial-gradient(ellipse 30px 15px at 18% 100%, var(--bite) 100%, transparent 100%),
+    radial-gradient(circle at 63% 100%, var(--bite) 18px, transparent 19px),
+    radial-gradient(ellipse 14px 20px at 0 36%, var(--bite) 100%, transparent 100%),
+    radial-gradient(circle at 0 76%, var(--bite) 11px, transparent 12px);
+}
+
+.about-photos li:nth-child(3) {
+  --holes:
+    radial-gradient(ellipse 22px 13px at 12% 0, var(--bite) 100%, transparent 100%),
+    radial-gradient(circle at 46% 0, var(--bite) 14px, transparent 15px),
+    radial-gradient(circle at 86% 0, var(--bite) 10px, transparent 11px),
+    radial-gradient(ellipse 15px 24px at 100% 22%, var(--bite) 100%, transparent 100%),
+    radial-gradient(circle at 100% 78%, var(--bite) 16px, transparent 17px),
+    radial-gradient(circle at 31% 100%, var(--bite) 15px, transparent 16px),
+    radial-gradient(ellipse 28px 14px at 82% 100%, var(--bite) 100%, transparent 100%),
+    radial-gradient(circle at 0 16%, var(--bite) 12px, transparent 13px),
+    radial-gradient(ellipse 13px 22px at 0 58%, var(--bite) 100%, transparent 100%);
+}
+
+.about-photos li:nth-child(4) {
+  --holes:
+    radial-gradient(ellipse 24px 12px at 34% 0, var(--bite) 100%, transparent 100%),
+    radial-gradient(circle at 88% 0, var(--bite) 17px, transparent 18px),
+    radial-gradient(circle at 100% 44%, var(--bite) 14px, transparent 15px),
+    radial-gradient(circle at 9% 100%, var(--bite) 13px, transparent 14px),
+    radial-gradient(ellipse 26px 14px at 48% 100%, var(--bite) 100%, transparent 100%),
+    radial-gradient(circle at 81% 100%, var(--bite) 11px, transparent 12px),
+    radial-gradient(ellipse 14px 22px at 0 24%, var(--bite) 100%, transparent 100%),
+    radial-gradient(circle at 0 70%, var(--bite) 15px, transparent 16px);
+}
+
+.service-item:nth-child(1) .service-photo-frame,
+.dashboard-visual {
+  --holes:
+    radial-gradient(ellipse 48px 26px at 12% 0, var(--bite) 100%, transparent 100%),
+    radial-gradient(circle at 46% 0, var(--bite) 30px, transparent 31px),
+    radial-gradient(circle at 86% 0, var(--bite) 18px, transparent 19px),
+    radial-gradient(ellipse 28px 46px at 100% 22%, var(--bite) 100%, transparent 100%),
+    radial-gradient(circle at 100% 78%, var(--bite) 34px, transparent 35px),
+    radial-gradient(circle at 31% 100%, var(--bite) 28px, transparent 29px),
+    radial-gradient(ellipse 56px 26px at 82% 100%, var(--bite) 100%, transparent 100%),
+    radial-gradient(circle at 0 16%, var(--bite) 22px, transparent 23px),
+    radial-gradient(ellipse 24px 40px at 0 58%, var(--bite) 100%, transparent 100%);
+}
+
+.service-item:nth-child(2) .service-photo-frame {
+  --holes:
+    radial-gradient(circle at 16% 0, var(--bite) 34px, transparent 35px),
+    radial-gradient(ellipse 64px 30px at 58% 0, var(--bite) 100%, transparent 100%),
+    radial-gradient(circle at 100% 12%, var(--bite) 22px, transparent 23px),
+    radial-gradient(ellipse 30px 52px at 100% 46%, var(--bite) 100%, transparent 100%),
+    radial-gradient(circle at 100% 84%, var(--bite) 26px, transparent 27px),
+    radial-gradient(ellipse 44px 24px at 27% 100%, var(--bite) 100%, transparent 100%),
+    radial-gradient(circle at 74% 100%, var(--bite) 36px, transparent 37px),
+    radial-gradient(circle at 0 42%, var(--bite) 24px, transparent 25px);
+}
+
+.service-item:nth-child(3) .service-photo-frame,
+.company-map {
+  --holes:
+    radial-gradient(circle at 24% 0, var(--bite) 32px, transparent 33px),
+    radial-gradient(ellipse 52px 28px at 78% 0, var(--bite) 100%, transparent 100%),
+    radial-gradient(circle at 100% 28%, var(--bite) 26px, transparent 27px),
+    radial-gradient(ellipse 24px 44px at 100% 67%, var(--bite) 100%, transparent 100%),
+    radial-gradient(ellipse 58px 28px at 18% 100%, var(--bite) 100%, transparent 100%),
+    radial-gradient(circle at 63% 100%, var(--bite) 34px, transparent 35px),
+    radial-gradient(ellipse 26px 40px at 0 36%, var(--bite) 100%, transparent 100%),
+    radial-gradient(circle at 0 76%, var(--bite) 22px, transparent 23px);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 0, #FFFFFF 34px, transparent 35px),
+    radial-gradient(ellipse 64px 30px at 54% 0, #FFFFFF 100%, transparent 100%),
+    radial-gradient(circle at 86% 0, #FFFFFF 22px, transparent 23px),
+    radial-gradient(ellipse 28px 52px at 100% 32%, #FFF8E8 100%, transparent 100%),
+    radial-gradient(circle at 100% 74%, #FFF8E8 32px, transparent 33px),
+    radial-gradient(circle at 24% 100%, #FFFFFF 28px, transparent 29px),
+    radial-gradient(ellipse 70px 32px at 70% 100%, #FFFFFF 100%, transparent 100%),
+    radial-gradient(circle at 0 20%, #FFF8E8 24px, transparent 25px),
+    radial-gradient(ellipse 26px 46px at 0 56%, #FFF8E8 100%, transparent 100%),
+    radial-gradient(circle at 0 86%, #FFF8E8 18px, transparent 19px);
+}
+
+.about-photos li::after,
+.service-photo-frame::after,
+.dashboard-visual::after,
+.company-map::after,
+.form::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: var(--holes);
+}
+
+/* ボタンは写真やフォームの上に乗っている。
+   同色の円を塗ると穴ではなくシールに見えるので、淵を透明にして後ろを見せる。 */
+.btn-wrap .btn,
+.form .btn {
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-composite: source-in, source-in, source-in, source-in;
+  mask-composite: intersect, intersect, intersect, intersect;
+}
+
+.btn-wrap .btn {
+  -webkit-mask-image:
+    radial-gradient(circle at 28% 0, transparent 9px, #000 10px),
+    radial-gradient(ellipse 14px 8px at 100% 32%, transparent 99%, #000 100%),
+    radial-gradient(circle at 70% 100%, transparent 8px, #000 9px),
+    radial-gradient(ellipse 8px 12px at 0 68%, transparent 99%, #000 100%),
+    linear-gradient(#000, #000);
+  mask-image:
+    radial-gradient(circle at 28% 0, transparent 9px, #000 10px),
+    radial-gradient(ellipse 14px 8px at 100% 32%, transparent 99%, #000 100%),
+    radial-gradient(circle at 70% 100%, transparent 8px, #000 9px),
+    radial-gradient(ellipse 8px 12px at 0 68%, transparent 99%, #000 100%),
+    linear-gradient(#000, #000);
+}
+
+.form .btn {
+  -webkit-mask-image:
+    radial-gradient(ellipse 16px 8px at 18% 0, transparent 99%, #000 100%),
+    radial-gradient(circle at 100% 26%, transparent 7px, #000 8px),
+    radial-gradient(circle at 42% 100%, transparent 9px, #000 10px),
+    radial-gradient(ellipse 9px 12px at 0 58%, transparent 99%, #000 100%),
+    linear-gradient(#000, #000);
+  mask-image:
+    radial-gradient(ellipse 16px 8px at 18% 0, transparent 99%, #000 100%),
+    radial-gradient(circle at 100% 26%, transparent 7px, #000 8px),
+    radial-gradient(circle at 42% 100%, transparent 9px, #000 10px),
+    radial-gradient(ellipse 9px 12px at 0 58%, transparent 99%, #000 100%),
+    linear-gradient(#000, #000);
+}
+
 /* FOOTER */
 .footer {
   padding: 30px 16px;
-  background: #707070;
-  color: #fff;
+  background: #493823;
+  color: #FFF8E8;
   text-align: center;
 }
 
 @media (max-width: 1100px) {
-  .course-body {
+  .service-body {
     padding: 40px 48px;
   }
 }
@@ -483,61 +773,70 @@ textarea:focus-visible {
     font-size: 16px;
   }
 
-  .mainvisual {
+  .hero {
     height: 380px;
   }
 
-  .mainvisual h1 {
+  .hero h1 {
     font-size: 32px;
   }
 
-  .mainvisual p {
+  .hero h1 + p {
     font-size: 20px;
   }
 
+  .hero p {
+    font-size: 16px;
+  }
+
   .about-text br,
-  .course-lead br {
+  .service-lead br {
     display: none;
   }
 
-  .course-item,
-  .course-item-reverse {
+  .service-item,
+  .service-item-reverse {
     flex-direction: column;
   }
 
-  .course-photo,
-  .course-body {
+  .service-photo-frame,
+  .service-body {
     width: 100%;
   }
 
-  .course-photo {
+  .service-photo-frame {
     height: 260px;
   }
 
-  .course-body {
+  .service-body {
     padding: 40px 24px;
   }
 
-  .news-list {
+  .dashboard-list {
     flex-direction: column;
     align-items: center;
   }
 
-  .access-list {
+  .company-list {
     grid-template-columns: 1fr;
     row-gap: 8px;
     width: auto;
-    margin-right: 20px;
-    margin-left: 20px;
+    margin-right: 0;
+    margin-left: 0;
+    padding: 24px 20px;
   }
 
-  .access-list dt {
+  .company-list dt {
     margin-top: 16px;
     text-align: left;
   }
 
-  .access-list dd {
+  .company-list dd {
     margin-bottom: 8px;
+  }
+
+  .form {
+    padding: 28px 20px 32px;
   }
 
   .form-row {
@@ -574,12 +873,17 @@ textarea:focus-visible {
     height: 140px;
   }
 
-  .mainvisual h1 {
+  .hero h1 {
     font-size: 26px;
   }
 
-  .mainvisual p {
+  .hero h1 + p {
     margin-top: 16px;
+    font-size: 18px;
+  }
+
+  .hero p {
+    margin-top: 12px;
     font-size: 16px;
   }
 }
@@ -589,7 +893,7 @@ textarea:focus-visible {
     scroll-behavior: auto;
   }
 
-  .mainvisual::before {
+  .hero::before {
     animation: none;
   }
 }
