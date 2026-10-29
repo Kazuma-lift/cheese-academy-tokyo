@@ -1,4 +1,4 @@
-/* チーズアカデミーTOKYO */
+/* NESA｜CHEESE BANK */
 
 *,
 *::before,
@@ -12,7 +12,7 @@ html {
 
 body {
   color: #222222;
-  font-family: "Helvetica Neue", Arial, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", YuGothic, Meiryo, sans-serif;
+  font-family: "M PLUS Rounded 1c", sans-serif;
   font-size: 16px;
   line-height: 1.8;
   line-break: strict;
@@ -89,7 +89,7 @@ textarea:focus-visible {
   outline-offset: 2px;
 }
 
-/* ヘッダー */
+/* HEADER */
 .header-inner {
   display: flex;
   align-items: center;
@@ -118,7 +118,7 @@ textarea:focus-visible {
   color: #b8960a;
 }
 
-/* メインビジュアル */
+/* HERO */
 .mainvisual {
   position: relative;
   display: flex;
@@ -164,7 +164,7 @@ textarea:focus-visible {
   to { transform: scale(1.06); }
 }
 
-/* About */
+/* ABOUT */
 .about {
   padding-top: 50px;
 }
@@ -200,7 +200,7 @@ textarea:focus-visible {
   transform: scale(1.05);
 }
 
-/* Course */
+/* SERVICE（旧：course） */
 .course {
   padding-top: 60px;
 }
@@ -234,7 +234,7 @@ textarea:focus-visible {
   flex-direction: column;
   justify-content: center;
   width: 50%;
-  padding: 50px 120px;
+  padding: 50px 60px;
   text-align: center;
 }
 
@@ -248,9 +248,18 @@ textarea:focus-visible {
   margin-top: 40px;
 }
 
-/* News */
+/* DASHBOARD（旧：news） */
 .news {
   padding: 60px 0;
+}
+
+.dashboard-visual {
+  margin: 30px 0 0;
+}
+
+.dashboard-visual img {
+  width: 100%;
+  height: auto;
 }
 
 .news-list {
@@ -299,7 +308,7 @@ textarea:focus-visible {
   text-align: center;
 }
 
-/* Access */
+/* COMPANY（旧：access） */
 .access {
   padding-top: 50px;
   background: #fafafa;
@@ -330,7 +339,7 @@ textarea:focus-visible {
   text-align: right;
 }
 
-/* Contact */
+/* CONTACT */
 .contact {
   padding: 60px 20px 140px;
   background: #fafafa;
@@ -443,7 +452,7 @@ textarea:focus-visible {
   display: none;
 }
 
-/* フッター */
+/* FOOTER */
 .footer {
   padding: 30px 16px;
   background: #707070;
@@ -487,8 +496,7 @@ textarea:focus-visible {
   }
 
   .about-text br,
-  .course-lead br,
-  .contact-lead br {
+  .course-lead br {
     display: none;
   }
 
