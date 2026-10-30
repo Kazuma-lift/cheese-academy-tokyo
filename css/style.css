@@ -158,7 +158,7 @@ textarea:focus-visible {
   content: "";
   position: absolute;
   inset: -24px;
-  background: url("../img/HEADER/header.png") center / cover no-repeat;
+  background: url("../img/HERO/header.png") center / cover no-repeat;
   animation: hero-zoom 18s ease-in-out infinite alternate;
 }
 
