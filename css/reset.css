@@ -1,8 +1,13 @@
 /* http://meyerweb.com/eric/tools/css/reset/
+   → このリセットCSSが配布されている公式サイトのURL
 v2.0 | 20110126
+   → このファイルのバージョン（Ver 2.0）と公開日（2011年1月26日）
 License: none (public domain)
+   → ライセンス（権利）。パブリックドメイン（著作権放棄）なので、
+      「誰でも自由に・無料で・改変して使って良いですよ」という意味。
 */
 
+/* メモ：あらゆるHTMLタグ（html, body, div, h1, p, a など...）を指定している */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -23,6 +28,8 @@ font-size: 100%;
 font: inherit;
 vertical-align: baseline;
 }
+
+/* HTML5で追加された新しいタグ群*/
 /* HTML5 display-role reset for older browsers
 */
 article, aside, details, figcaption, figure,
